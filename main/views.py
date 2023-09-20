@@ -64,7 +64,6 @@ def create_product(request):
     form = ProductForm(request.POST or None)
 
     if form.is_valid() and request.method == "POST":
-        form.save()
         product = form.save(commit=False)
         product.user = request.user
         product.save()
